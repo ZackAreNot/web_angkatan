@@ -37,7 +37,7 @@ export type ProvinceSummary = {
   fillClassName?: string
 }
 
-export type ProvinceSummaryMap = Record<string, ProvinceSummary>
+export type ProvinceSummaryMap = Partial<Record<string, ProvinceSummary>>
 
 export type ProvincePathData = {
   id: string
@@ -47,4 +47,10 @@ export type ProvincePathData = {
   centerX: number
   centerY: number
   fillClassName: string
+}
+
+export type GeneratedMapData = {
+  svgWidth: number
+  svgHeight: number
+  provinces: ProvincePathData[]
 }
