@@ -3,7 +3,7 @@
 import { ZodError } from 'zod'
 
 import { menfessPayloadSchema, normalizeMenfessPayload, type MenfessPayloadInput } from '@/lib/menfess/schema'
-import { createSupabaseServiceRoleClient } from '@/lib/supabase/server'
+import { createSupabaseAnonymousClient } from '@/lib/supabase/server'
 import type { ActionResult, MenfessListData, MenfessRecord } from '@/types/menfess'
 
 const MENFESS_SELECT_FIELDS = 'id,message,from,to,created_at' as const
@@ -40,7 +40,7 @@ export async function createMenfessAction(
 ): Promise<ActionResult<MenfessRecord>> {
   try {
     const payload = menfessPayloadSchema.parse(normalizeMenfessPayload(input))
-    const supabase = createSupabaseServiceRoleClient()
+    const supabase = createSupabaseAnonymousClient()
 
     const { data, error } = await supabase
       .from('menfess')
@@ -98,7 +98,7 @@ export async function getMenfessListAction(
     const limit = sanitizeLimit(params.limit)
     const from = (page - 1) * limit
     const to = from + limit - 1
-    const supabase = createSupabaseServiceRoleClient()
+    const supabase = createSupabaseAnonymousClient()
 
     const { data, error, count } = await supabase
       .from('menfess')
