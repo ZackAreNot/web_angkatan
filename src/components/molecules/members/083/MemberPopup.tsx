@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 import Image from 'next/image'
 
@@ -40,7 +41,7 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
     return null
   }
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4 pt-28 pb-8 sm:pt-32">
       
       {/* AREA BACKDROP */}
@@ -122,7 +123,8 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
         </div>
         
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
