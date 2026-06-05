@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 import Image from 'next/image'
 
@@ -40,9 +41,9 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
     return null
   }
 
-  return (
+  return createPortal(
     // PADA BAGIAN INI KAMU BOLEH MENGUBAH STYLE SESUKA HATI KAMU, TAPI JANGAN UBAH STRUKTUR DAN FUNGSI DARI KODE INI AGAR FUNGSI POPUP TETAP BERJALAN DENGAN BAIK
-    <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4 pt-28 pb-8 sm:pt-32">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4">
       <button
         type="button"
         aria-label="Close member detail"
@@ -50,7 +51,7 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
         className="absolute inset-0 bg-black/80 backdrop-blur-md"
       />
 
-      <div className="relative z-10 max-h-[calc(100vh-9rem)] w-full max-w-[720px] animate-[member-popup-show_200ms_ease-out] overflow-y-auto rounded-3xl border-4 p-6 text-white shadow-2xl sm:max-h-[calc(100vh-10rem)] sm:p-8 bg-gradient-to-b from-amber-900 via-yellow-900 to-amber-950 border-yellow-600" style={{
+      <div className="relative z-10 max-h-[100dvh] w-full max-w-[720px] animate-[member-popup-show_200ms_ease-out] overflow-y-auto rounded-3xl border-4 p-6 text-white shadow-2xl sm:p-8 bg-gradient-to-b from-amber-900 via-yellow-900 to-amber-950 border-yellow-600" style={{
         boxShadow: '0 0 40px rgba(217, 119, 6, 0.6), inset 0 0 20px rgba(217, 119, 6, 0.2)',
         backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(217, 119, 6, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(217, 119, 6, 0.1) 0%, transparent 50%)'
       }}>
@@ -117,7 +118,8 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
           <SpotifyEmbed spotifyUrl="https://open.spotify.com/track/0gEyKnHvgkrkBM6fbeHdwK?si=eEXcL632TS-trYtvudIzJQ&rowId=f5f16ce58e208385" />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
