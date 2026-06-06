@@ -9,7 +9,7 @@ import Instagram from '@/components/atoms/button/InstagramButtonLink'
 import LinkedInButtonLink from '@/components/atoms/button/LinkedInButtonLink'
 import SpotifyEmbed from '@/components/molecules/SpotifyEmbed'
 
-import ProfileImage from './image.png'
+import ProfileImage from './image.jpeg'
 
 type MemberPopupProps = {
   isOpen: boolean
@@ -67,41 +67,115 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
 
         <div className="pr-10">
           {/* UBAH NAMA ANDA */}
-          <h2 className="text-2xl font-black">Catherina Vallencia K</h2>
+          <h2 className="text-2xl font-black main-name">Arrumanta Ekna Luhkinasih</h2>
           {/* UBAH NRP DAN ASAL */}
-          <p className="text-neutral-cs-10/70 mt-1 text-sm font-semibold">5027251082 - Surakarta</p>
+          <p className="text-neutral-cs-10/70 mt-1 text-sm font-semibold sub-details">5027251044 - Solo</p>
         </div>
 
         <div className="mt-5 flex gap-2">
           {/* UBAH USERNAME INSTAGRAM */}
-          <Instagram username="jkt48.erine" />
+          <Instagram username="arrumantaa" />
           {/* UBAH USERNAME LINKEDIN */}
-          <LinkedInButtonLink username="jkt48.erine" />
+          <LinkedInButtonLink username="arrumanta" />
         </div>
 
         <div className="mt-6 grid gap-4 text-sm font-semibold sm:grid-cols-2">
           <div className="border-neutral-cs-10/40 rounded-xl border p-4">
             {/* UBAH HOBI KAMU */}
             <p className="text-neutral-cs-10/60 text-xs tracking-wide uppercase">Hobi</p>
-            <p className="mt-2">Nyanyi</p>
+            <p className="mt-2">read you like a magazine ;)</p>
           </div>
           <div className="border-neutral-cs-10/40 rounded-xl border p-4">
             {/* UBAH FUNFACT KAMU */}
             <p className="text-neutral-cs-10/60 text-xs tracking-wide uppercase">Fun Fact</p>
-            <p className="mt-2">Gwe Member JKT</p>
+            <p className="mt-2">Oh I'm the FUN one, darling :p</p>
           </div>
         </div>
 
         <div className="border-neutral-cs-10/40 mt-4 rounded-xl border p-4">
           {/* UBAH LAGU FAVORIT KAMU */}
           <p className="text-neutral-cs-10/60 text-xs font-bold tracking-wide uppercase">Lagu Favorit</p>
-          <p className="my-2 text-sm font-semibold">There Is a Light That Never Goes Out</p>
+          <p className="my-2 text-sm font-semibold">Anugerah Terindah Yang Pernah Kumiliki</p>
 
           {/* UBAH URL SPOTIFY KAMU DENGAN LAGU FAVORIT MU */}
-          <SpotifyEmbed spotifyUrl="https://open.spotify.com/track/2X62SjtuwVQiGiZvZZ9Ztr?si=f6718391848a4469" />
+          <SpotifyEmbed spotifyUrl="https://open.spotify.com/track/41OCQS2Mul3MluLUUsfadr?si=c721971a8b304f3a" />
         </div>
       </div>
-    </div>,
+    </div>
+      <style jsx>{`
+  div[class*="fixed"][class*="inset-0"] > button + div {
+    background: linear-gradient(135deg, #EBE6E1 0%, #BDB5B1 100%);
+    border: 1px solid #C78D96;
+    border-radius: 12px;
+    box-shadow: 8px 8px 0px rgba(108, 73, 82, 0.15), inset 0 0 20px rgba(189, 181, 177, 0.5);
+    color: #6C4952 !important;
+    font-family: 'Cormorant Garamond', 'Lora', serif;
+  }
+  div[class*="fixed"][class*="inset-0"] > button + div h2,
+  div[class*="fixed"][class*="inset-0"] > button + div p {
+    font-family: 'Cormorant Garamond', 'Lora', serif !important;
+  }
+  div[class*="fixed"][class*="inset-0"] > button + div > div:nth-child(2) img {
+    padding: 8px;
+    background-color: #EBE6E1;
+    border: 1px solid #BDB5B1;
+    border-radius: 4px;
+    box-shadow: 2px 4px 12px rgba(108, 73, 82, 0.2);
+    filter: sepia(0.3) contrast(1.1) saturate(0.8) brightness(0.95);
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div .pr-10 h2.main-name {
+    color: #6C4952 !important;
+    text-shadow: 2px 2px 4px rgba(108, 73, 82, 0.1);
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', 'Lora', serif;
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div .pr-10 p.sub-details {
+    color: #C78D96 !important;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    font-family: 'Cormorant Garamond', 'Lora', serif;
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-6 > div:nth-child(1),
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-6 > div:nth-child(2) {
+    background: linear-gradient(to bottom right, rgba(235, 230, 225, 0.9), rgba(199, 141, 150, 0.15));
+    border: 1px solid #C78D96;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(199, 141, 150, 0.1);
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-6 > div > p:first-child {
+    color: #6C4952 !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.78rem;
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-6 > div > p:last-child {
+    color: #6C4952 !important;
+    font-weight: normal;
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-4 {
+    background: #6C4952;
+    border: 3px double #BDB5B1;
+    border-radius: 6px;
+    color: #EBE6E1;
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-4 p {
+    color: #EBE6E1 !important;
+  }
+
+  div[class*="fixed"][class*="inset-0"] > button + div > div.mt-4 iframe {
+    filter: sepia(0.4) opacity(0.9) contrast(1.1);
+    border-radius: 4px !important;
+    border: 1px solid #BDB5B1 !important;
+  }
+`}</style>
+    </>,
     document.body
   )
 }
