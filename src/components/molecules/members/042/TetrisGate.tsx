@@ -214,7 +214,7 @@ export default function TetrisGate({ onSuccess }: TetrisGateProps) {
   }, [clearLines, validPos])
 
   const loop = useCallback(
-    (ts: number = 0) => {
+    function gameLoop(ts: number = 0) {
       if (!s.running || s.paused) return
       const speed = Math.max(100, 500 - s.linesCleared * 30)
       if (ts - s.lastDrop > speed) {
@@ -223,7 +223,7 @@ export default function TetrisGate({ onSuccess }: TetrisGateProps) {
         s.lastDrop = ts
       }
       draw()
-      s.animId = requestAnimationFrame(loop)
+      s.animId = requestAnimationFrame(gameLoop)
     },
     [draw, lockPiece, validPos]
   )
